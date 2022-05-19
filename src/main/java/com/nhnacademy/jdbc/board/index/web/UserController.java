@@ -47,8 +47,6 @@ public class UserController {
 		HttpServletRequest request,
 		ModelMap modelMap) {
 		if (userService.matches(id, pwd)) {
-			log.debug("넘어온 id값 : ? ", id);
-			log.debug("넘어온 pwd값 : ? ", pwd);
 			//성공시
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);

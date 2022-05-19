@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table class = "table table-striped" border="1">
+        <thead>
+        <tr>전체 게시물</tr>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일자</th>
+            <th>조회수</th>
+        </tr>
+        <tr th:each="notice : ${noticeBoard}">
+            <td th:text = "${notice.id}"></td>
+            <td th:text = "${notice.title}">
+                <a href="/login">sdlkfj hy</a>
+            </td>
+            <td th:text = "${notice.writer}"></td>
+            <td th:text = "${noticfe.createDate}"></td>
+            <td th:text = "${notice.hits}"></td>
+        </tr>
+        </thead>
+    </table>
+</body>
+</html>

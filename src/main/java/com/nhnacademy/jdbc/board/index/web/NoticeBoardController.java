@@ -4,6 +4,7 @@ import com.nhnacademy.jdbc.board.post.domain.PostTitle;
 import com.nhnacademy.jdbc.board.post.service.PostTitleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping
@@ -40,5 +42,13 @@ public class NoticeBoardController {
         postTitleService.post(postTitle);
 
         return "index/home";
+    }
+
+    @GetMapping("/ContentTitle")
+    public String getContents(ModelMap modelMap){
+        List<PostTitle> list = postTitleService.selectPostTitles();
+        modelMap.put("noticeBoard", postTitleService.selectPostTitles());
+
+        return "index/noticeBoard";
     }
 }
