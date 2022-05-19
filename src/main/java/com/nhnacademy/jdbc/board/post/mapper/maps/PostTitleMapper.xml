@@ -11,8 +11,12 @@
         select notice_board_no, writer, corrector, title, create_date, correct_date, hits, content from notice_board;
     </select>
 
+    <!--게시물 조회-->
+    <select id="selectPostTitle" resultType="com.nhnacademy.jdbc.board.post.domain.PostTitle">
+        select notice_board_no, writer, corrector, title, create_date, correct_date, hits, content, is_inactive from notice_board where notice_board_no = ${id}
+    </select>
 
-<!--    게시판 추가-->
+    <!--게시판 추가-->
     <insert id="insertPostTitle">
         insert into notice_board values(default, '${writer}', null, '${title}', #{createDate}, null, 0, '${content}')
     </insert>

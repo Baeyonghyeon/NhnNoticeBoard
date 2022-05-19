@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DefaultPostTitleService implements PostTitleService {
@@ -19,7 +20,12 @@ public class DefaultPostTitleService implements PostTitleService {
 
     @Override
     public List<PostTitle> selectPostTitles() {
-        return postTitleMapper.selectPostTitles() ;
+        return postTitleMapper.selectPostTitles();
+    }
+
+    @Override
+    public Optional<PostTitle> selectPostTitle(int id) {
+        return postTitleMapper.selectPostTitle(id);
     }
 
     @Override

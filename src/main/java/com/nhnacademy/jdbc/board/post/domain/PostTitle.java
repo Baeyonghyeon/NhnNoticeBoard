@@ -1,12 +1,6 @@
 package com.nhnacademy.jdbc.board.post.domain;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
-import lombok.Value;
-
-
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Data
@@ -20,6 +14,7 @@ public class PostTitle {
     private Date correctDate;
     private int hits;
     private String content;
+    private boolean isInactive; //true 비활성화  , false 활성화;
 
     public PostTitle(String writer, String title, Date createDate, String content) {
         this.writer = writer;
@@ -28,9 +23,10 @@ public class PostTitle {
         this.createDate = createDate;
         this.hits = 0;
         this.content = content;
+        this.isInactive = false;
     }
 
-    public PostTitle(int id, String writer, String corrector, String title, Date createDate, Date correctDate, int hits, String content) {
+    public PostTitle(int id, String writer, String corrector, String title, Date createDate, Date correctDate, int hits, String content ,boolean isInactive) {
         this.id = id;
         this.writer = writer;
         this.corrector = corrector;
@@ -39,5 +35,6 @@ public class PostTitle {
         this.correctDate = correctDate;
         this.hits = hits;
         this.content = content;
+        this.isInactive = isInactive;
     }
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+제목 : <span th:text="${contents.title}"></span><br>
+작성자 : <span th:text="${contents.writer}"></span><br>
+작성일 : <span th:text="${contents.createDate}"></span><br>
+수정일 : <span th:text="${contents.correctDate}"></span><br>
+내용 : <span th:text="${contents.content}"></span><br/><br>
+
+<a th:href="${'/updateTitle' + contents.id }"> 게시물 수정 </a><br>
+<a th:href="${'/deleteTitle' + contents.id }"> 게시물 삭제 </a>
+
+</body>
+</html>
+
+

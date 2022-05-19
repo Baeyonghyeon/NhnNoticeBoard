@@ -17,8 +17,8 @@
         </tr>
         <tr th:each="notice : ${noticeBoard}">
             <td th:text = "${notice.id}"></td>
-            <td th:text = "${notice.title}">
-                <a href="/login">sdlkfj hy</a>
+            <td>
+                <a th:text = "${notice.title}" th:href="${'/Contents/postView/' + notice.id }"></a>
             </td>
             <td th:text = "${notice.writer}"></td>
             <td th:text = "${noticfe.createDate}"></td>
