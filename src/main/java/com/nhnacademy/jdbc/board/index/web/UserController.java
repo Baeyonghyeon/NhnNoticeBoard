@@ -45,7 +45,6 @@ public class UserController {
 	public String doLogin(@RequestParam("id") String id,
 		@RequestParam("pwd") String pwd,
 		HttpServletRequest request,
-		HttpServletResponse response,
 		ModelMap modelMap) {
 		if (userService.matches(id, pwd)) {
 			log.debug("넘어온 id값 : ? ", id);
