@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PostTitleService {
     List<PostTitle> selectPostTitles();
-    void Post(PostTitle postTitle);
+    void post(PostTitle postTitle);
 }

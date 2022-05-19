@@ -36,7 +36,7 @@ public class UserController {
 			// 로그인 안되있으면 loginForm
 			return "index/loginForm";
 		} else {
-			return "index/index";
+			return "index/home";
 		}
 	}
 
@@ -55,7 +55,7 @@ public class UserController {
 			session.setAttribute("id", id);
 
 			modelMap.put("id", session.getAttribute("id"));
-			return "index/index";
+			return "index/loginSuccess";
 		} else {
 			//실패시
 			return "redirect:/login";
