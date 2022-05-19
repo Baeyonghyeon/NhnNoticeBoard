@@ -11,4 +11,5 @@ public interface StudentMapper {
     void insertStudent(Student student);
     void updateNameById(String name, long id);
     void deleteById(long id);
+
 }
