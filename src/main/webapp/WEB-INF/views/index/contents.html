@@ -13,8 +13,8 @@
 내용 : <span th:text="${contents.content}"></span><br/><br>
 
 <div th:style="${contents.writer == writer ? 'display:block' : 'display:none'}">
-    <a th:href="${'/updateTitle' + contents.id }"> 게시물 수정 </a><br>
-    <a th:href="${'/deleteTitle' + contents.id }"> 게시물 삭제 </a>
+    <a th:href="${'/updateTitle/' + contents.id }"> 게시물 수정 </a><br>
+    <a th:href="${'/deleteTitle/' + contents.id }"> 게시물 삭제 </a>
 </div>
 
 
@@ -23,5 +23,3 @@
 
 </body>
 </html>
-
-

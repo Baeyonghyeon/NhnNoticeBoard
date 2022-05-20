@@ -25,16 +25,18 @@ public class NoticeBoardController {
         this.postTitleService = postTitleService;
     }
 
-
+    // 게시물 입력하는 Form으로 이동
     @GetMapping("/postNotice")
-    public String goPostNotice(){
+    public String goPostNotice() {
         return "index/postNoticeForm";
     }
 
+
+    // 게시물 DB에 등록
     @PostMapping("/postNotice")
     public String postNotice(@RequestParam("title") String title,
                              @RequestParam("contents") String contents,
-                             HttpServletRequest request){
+                             HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         PostTitle postTitle = new PostTitle((String) session.getAttribute("id"), title, new Timestamp(new Date().getTime()), contents);
         postTitleService.post(postTitle);
@@ -42,6 +44,7 @@ public class NoticeBoardController {
         return "index/home";
     }
 
+    // 게시물 모두 조회 (전체 게시판)
     @GetMapping("/ContentTitle")
     public String getTitles(ModelMap modelMap) {
         List<PostTitle> list = postTitleService.selectPostTitles();
@@ -87,6 +90,7 @@ public class NoticeBoardController {
     @GetMapping("/deleteTitle/{noticeId}")
     public String deletePost(@PathVariable("noticeId") int noticeId, ModelMap modelMap) {
             postTitleService.deletePost(noticeId);
+            modelMap.put("noticeBoard", postTitleService.selectPostTitles());
             return "index/noticeBoard";
     }
 }

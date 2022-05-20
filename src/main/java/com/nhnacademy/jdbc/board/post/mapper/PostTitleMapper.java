@@ -9,6 +9,6 @@ public interface PostTitleMapper {
     List<PostTitle> selectPostTitles();
     Optional<PostTitle> selectPostTitle(int id);
     void insertPostTitle(PostTitle postTitle);
-//    void updatePostTitle();
-    void deleteById(Long id);
+    void updatePostTitle(PostTitle postTitle);
+    void deleteById(int id);
 }
