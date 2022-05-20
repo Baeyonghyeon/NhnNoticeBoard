@@ -22,7 +22,7 @@
 
     <!--게시판 수정-->
     <update id="updatePostTitle">
-        UPDATE notice_board set corrector = '${writer}', title = '${title}', content = '${content}', correct_date = now() WHERE notice_board_no = ${id}
+        UPDATE notice_board set corrector = #{corrector}, title = #{title}, content = #{contents}, correct_date = now() WHERE notice_board_no = ${id}
     </update>
 
     <!--게시판 삭제-->

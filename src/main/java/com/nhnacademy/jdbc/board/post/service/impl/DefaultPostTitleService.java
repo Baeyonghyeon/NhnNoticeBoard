@@ -29,13 +29,13 @@ public class DefaultPostTitleService implements PostTitleService {
     }
 
     @Override
-    public void post(PostTitle postTitle) {
+    public void uploadPost(PostTitle postTitle) {
         postTitleMapper.insertPostTitle(postTitle);
     }
 
     @Override
-    public void updatePost(PostTitle postTitle) {
-        postTitleMapper.updatePostTitle(postTitle);
+    public void modifyPost(String corrector ,String title, String contents, int id) {
+        postTitleMapper.updatePostTitle(corrector,title, contents, id);
     }
 
     @Override

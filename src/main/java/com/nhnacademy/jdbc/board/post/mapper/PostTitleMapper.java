@@ -9,6 +9,6 @@ public interface PostTitleMapper {
     List<PostTitle> selectPostTitles();
     Optional<PostTitle> selectPostTitle(int id);
     void insertPostTitle(PostTitle postTitle);
-    void updatePostTitle(PostTitle postTitle);
+    void updatePostTitle(@Param("corrector") String corrector , @Param("title") String title, @Param("contents") String contents, @Param("id") int id);
     void deleteById(int id);
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 @RequestMapping
@@ -39,7 +39,7 @@ public class NoticeBoardController {
                              HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         PostTitle postTitle = new PostTitle((String) session.getAttribute("id"), title, new Timestamp(new Date().getTime()), contents);
-        postTitleService.post(postTitle);
+        postTitleService.uploadPost(postTitle);
 
         return "index/home";
     }
@@ -79,10 +79,11 @@ public class NoticeBoardController {
                                  @RequestParam("content") String content,
                                  HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        PostTitle postTitle = new PostTitle((String) session.getAttribute("id"),
-                title, new Timestamp(new Date().getTime()), content);
-        postTitleService.updatePost(postTitle);
-        return "index/noticeBoard";
+        String id = (String) session.getAttribute("id");
+//        Optional<PostTitle> postTitle = postTitleService.selectPostTitle(noticeId);
+
+        postTitleService.modifyPost(id, title, content, noticeId);
+        return "redirect:/ContentTitle";
     }
 
 
