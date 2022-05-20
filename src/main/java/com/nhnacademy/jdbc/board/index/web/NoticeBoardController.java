@@ -61,27 +61,32 @@ public class NoticeBoardController {
         return "index/contents";
     }
 
-//     게시물 수정
-//    @GetMapping("/updateTitle/{noticeId}")
-//    public String updatePost(@PathVariable("noticeId") int noticeId, ModelMap modelMap) {
-//        postTitleService.selectPostTitle(noticeId).get();
-//
-//    }
+    //  게시물 수정 Form으로 이동
+    @GetMapping("/updateTitle/{noticeId}")
+    public String getUpdatePost(@PathVariable("noticeId") int noticeId, ModelMap modelMap) {
+        PostTitle post = postTitleService.selectPostTitle(noticeId).get();
+        modelMap.put("contents", post);
+        return "index/contentsModifyForm";
+    }
+
+    //  게시물 수정 값 받아서 DB에 업데이트
+    @PostMapping("/updateTitle/{noticeId}")
+    public String postUpdatePost(@PathVariable("noticeId") int noticeId,
+                                 @RequestParam("title") String title,
+                                 @RequestParam("content") String content,
+                                 HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        PostTitle postTitle = new PostTitle((String) session.getAttribute("id"),
+                title, new Timestamp(new Date().getTime()), content);
+        postTitleService.updatePost(postTitle);
+        return "index/noticeBoard";
+    }
+
 
     // 게시물 삭제
     @GetMapping("/deleteTitle/{noticeId}")
-    public String deletePost(@PathVariable("noticeId") int noticeId,
-                             HttpServletRequest request,
-                             ModelMap modelMap) {
-        HttpSession session = request.getSession(false);
-
-        PostTitle post = postTitleService.selectPostTitle(noticeId).get();
-        String postId = post.getWriter();
-        if (Objects.equals(session.getAttribute("id"), postId)) {
+    public String deletePost(@PathVariable("noticeId") int noticeId, ModelMap modelMap) {
             postTitleService.deletePost(noticeId);
             return "index/noticeBoard";
-        } else {
-            return "index/exceptionPermission";
-        }
     }
 }
