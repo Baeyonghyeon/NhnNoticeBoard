@@ -35,13 +35,19 @@
 <!--게시판 목록 게시물 각각 답글 조회-->
   <select id="selectRepliesOnPost"
           resultType="com.nhnacademy.jdbc.board.reply.domain.Reply">
-    SELECT * FROM reply WHERE notice_board_no = #{postId} and common_code = 0;
-  </select>
+    SELECT *
+    FROM reply
+    WHERE notice_board_no = #{postId} and common_code = 0
+    ORDER BY parent_no ASC, depth ASC
+ </select>
 
 
 <!--게시물 상세 조회에서 댓글에 답글 조회-->
   <select id="selectRepliesOnComment"
           resultType="com.nhnacademy.jdbc.board.reply.domain.Reply">
-    SELECT * FROM reply WHERE comment_no = #{commentId} and common_code = 1;
+    SELECT *
+    FROM reply
+    WHERE comment_no = #{commentId} and common_code = 1
+    ORDER BY parent_no ASC, depth ASC
   </select>
 </mapper>

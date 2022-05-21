@@ -4,10 +4,10 @@ import com.nhnacademy.jdbc.board.comment.domain.Comment;
 import com.nhnacademy.jdbc.board.comment.service.CommentService;
 import com.nhnacademy.jdbc.board.post.domain.PostTitle;
 import com.nhnacademy.jdbc.board.post.service.PostTitleService;
+import com.nhnacademy.jdbc.board.reply.service.ReplyService;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +23,13 @@ public class NoticeBoardController extends BaseController {
 
     private final PostTitleService postTitleService;
     private final CommentService commentService;
+    private final ReplyService replyService;
 
-    public NoticeBoardController(PostTitleService postTitleService, CommentService commentService) {
+    public NoticeBoardController(PostTitleService postTitleService, CommentService commentService,
+        ReplyService replyService) {
         this.postTitleService = postTitleService;
         this.commentService = commentService;
+        this.replyService = replyService;
     }
 
     // 게시물 입력하는 Form으로 이동
@@ -51,8 +54,9 @@ public class NoticeBoardController extends BaseController {
     // 게시물 모두 조회 (전체 게시판)
     @GetMapping("/ContentTitle")
     public String getTitles(ModelMap modelMap) {
-//        List<PostTitle> list = postTitleService.selectPostTitles();
-        modelMap.put("noticeBoard", postTitleService.selectPostTitles());
+        List<PostTitle> posts = postTitleService.selectPostTitles();
+        posts
+        modelMap.put("noticeBoard", posts);
 
         return "index/noticeBoard";
     }
