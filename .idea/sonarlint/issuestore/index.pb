@@ -5,8 +5,6 @@ a
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
-n
->src/main/java/com/nhnacademy/jdbc/board/config/RootConfig.java,3/c/3c2120ffe0a0f7a59d64efd97aca3eb07862f21c
 m
 =src/main/java/com/nhnacademy/jdbc/board/config/WebConfig.java,a/1/a1ca2a8072c40e9e253217787111269c053bb793
 u
@@ -43,7 +41,5 @@ g
 Nsrc/main/java/com/nhnacademy/jdbc/board/interceptor/LoginCheckInterceptor.java,0/3/03958d87238e7179e5a8bde93b27ee79f578f0fe
 †
 Vsrc/main/java/com/nhnacademy/jdbc/board/post/service/impl/DefaultPostTitleService.java,a/a/aa42d5b0f32ba77a1317ff083336852de3310cd7
-x
-Hsrc/main/java/com/nhnacademy/jdbc/board/post/mapper/PostTitleMapper.java,c/9/c955ac5123da8865f9b7d7e43c8bac8c4b3641d0
 z
 Jsrc/main/java/com/nhnacademy/jdbc/board/post/service/PostTitleService.java,9/e/9ea4e0a8ffbca6240041de497913a843ca21f495
