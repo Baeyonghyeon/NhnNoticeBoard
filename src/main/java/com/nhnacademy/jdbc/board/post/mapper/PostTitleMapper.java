@@ -4,6 +4,7 @@ import com.nhnacademy.jdbc.board.post.domain.PostTitle;
 
 import java.util.List;
 import java.util.Optional;
+import org.apache.ibatis.annotations.Param;
 
 public interface PostTitleMapper {
     List<PostTitle> selectPostTitles();
