@@ -14,7 +14,8 @@
 
 <div th:style="${contents.writer == writer ? 'display:block' : 'display:none'}">
     <a th:href="${'/updateTitle/' + contents.id }"> 게시물 수정 </a><br>
-    <a th:href="${'/deleteTitle/' + contents.id }"> 게시물 삭제 </a>
+    <a th:href="${'/deleteTitle/' + contents.id }"> 게시물 삭제 </a><br>
+    <a href="/ContentTitle">게시판 목록 이동</a>
 </div>
 <hr>
 <form method="post" th:action="@{|/postComment/${contents.id}|}">

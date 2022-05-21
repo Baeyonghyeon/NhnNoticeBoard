@@ -29,7 +29,3 @@ v
 Fsrc/main/java/com/nhnacademy/jdbc/board/index/web/IndexController.java,f/7/f76509737511245ced87d707e319709ed40bd1a9
 w
 Gsrc/main/java/com/nhnacademy/jdbc/board/user/mapper/maps/UserMapper.xml,9/d/9d2e4e20539aab80537fe7e1fb7b562cc618c784
-x
-Hsrc/main/java/com/nhnacademy/jdbc/board/post/mapper/PostTitleMapper.java,c/9/c955ac5123da8865f9b7d7e43c8bac8c4b3641d0
-z
-Jsrc/main/java/com/nhnacademy/jdbc/board/post/service/PostTitleService.java,9/e/9ea4e0a8ffbca6240041de497913a843ca21f495
