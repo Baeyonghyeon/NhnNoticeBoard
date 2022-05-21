@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Optional;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface PostTitleMapper {
