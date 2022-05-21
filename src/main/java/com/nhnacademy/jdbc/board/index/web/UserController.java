@@ -1,5 +1,6 @@
 package com.nhnacademy.jdbc.board.index.web;
 
+import com.nhnacademy.jdbc.board.user.domain.User;
 import com.nhnacademy.jdbc.board.user.service.UserService;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
@@ -10,17 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
 @RequestMapping
 @Slf4j
-public class UserController {
+public class UserController extends BaseController {
 
 	private final UserService userService;
 
@@ -30,9 +27,8 @@ public class UserController {
 
 
 	@GetMapping(value = {"/", "/login"})
-	public String login(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        if (Objects.isNull(session) || Objects.isNull(session.getAttribute("id"))) {
+	public String login(@ModelAttribute("user")  String userId) {
+        if (Objects.isNull(userId)) {
 			// 로그인 안되있으면 loginForm
 			return "index/loginForm";
 		} else {

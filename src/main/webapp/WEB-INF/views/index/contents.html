@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -16,10 +16,42 @@
     <a th:href="${'/updateTitle/' + contents.id }"> 게시물 수정 </a><br>
     <a th:href="${'/deleteTitle/' + contents.id }"> 게시물 삭제 </a>
 </div>
+<hr>
+<form method="post" th:action="@{|/postComment/${contents.id}|}">
+    <fieldset>
+        <legend>댓글 작성</legend>
+        <input type="text" name="content" placeholder="댓글을 입력하세요">
+        <button type="submit">등록하기</button>
+    </fieldset>
+</form>
+<h2>댓글</h2>
+<table class = "table table-striped" border="1">
+    <thead>
+        <tr>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일자</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="comment : ${comments}">
+            <td th:text = "${comment.writer}"></td>
+            <td th:text = "${comment.commentContent}"></td>
+            <td th:text = "${comment.createDate}"></td>
 
 
+            <td><a th:href="@{|/modifyComment/${contents.id}/${comment.commentNo}|}"> 댓글 수정 </a><br></td>
+            <td><a th:href="@{|/deleteComment/${contents.id}/${comment.commentNo}|}"> 댓글 삭제 </a></td>
+        </tr>
+    </tbody>
+<!--        <tbody th:style="${comment.writer eq writer ? 'display:block' : 'display:none'}">-->
 
-
+<!--    <td>-->
+<!--        <a th:text = "${notice.commentContents}" th:href="${'/Contents/postView/' + notice.id }"></a>-->
+<!--    </td>-->
+</table>
 
 </body>
 </html>

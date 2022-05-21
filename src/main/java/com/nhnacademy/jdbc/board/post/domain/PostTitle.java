@@ -16,17 +16,22 @@ public class PostTitle {
     private String content;
     private boolean isInactive; //true 비활성화  , false 활성화;
 
-    public PostTitle(String writer, String title, Date createDate, String content) {
-        this.writer = writer;
-        this.corrector = null;
-        this.title = title;
-        this.createDate = createDate;
-        this.hits = 0;
-        this.content = content;
-        this.isInactive = false;
+    public static PostTitle registerPostTitle(String writer, String title, Date createDate, String content){
+        return new PostTitle(writer, title, createDate, content);
     }
 
-    public PostTitle(int id, String writer, String corrector, String title, Date createDate, Date correctDate, int hits, String content ,boolean isInactive) {
+//    public static PostTitle original(int id, String writer, String corrector, String title, Date createDate, Date correctDate, int hits, String content ,boolean isInactive){
+//        return new PostTitle(id, writer, corrector, title, createDate, correctDate, hits, content, isInactive);
+//    }
+
+    private PostTitle(String writer, String title, Date createDate, String content) {
+        this.writer = writer;
+        this.title = title;
+        this.createDate = createDate;
+        this.content = content;
+    }
+
+    private PostTitle(int id, String writer, String corrector, String title, Date createDate, Date correctDate, int hits, String content ,boolean isInactive) {
         this.id = id;
         this.writer = writer;
         this.corrector = corrector;
