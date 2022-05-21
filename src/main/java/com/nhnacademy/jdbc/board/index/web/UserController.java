@@ -26,7 +26,7 @@ public class UserController extends BaseController {
 	}
 
 
-	@GetMapping(value = {"/", "/login"})
+	@GetMapping(value = {"/login"})
 	public String login(@ModelAttribute("user")  String userId) {
         if (Objects.isNull(userId)) {
 			// 로그인 안되있으면 loginForm
