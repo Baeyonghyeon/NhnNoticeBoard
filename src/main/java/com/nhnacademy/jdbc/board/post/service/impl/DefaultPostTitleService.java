@@ -16,10 +16,14 @@ public class DefaultPostTitleService implements PostTitleService {
         this.postTitleMapper = postTitleMapper;
     }
 
-
     @Override
     public List<PostTitle> selectPostTitles() {
         return postTitleMapper.selectPostTitles();
+    }
+
+    @Override
+    public List<PostTitle> selectDeletedPostTitles() {
+        return postTitleMapper.selectDeletedTitles();
     }
 
     @Override
@@ -35,6 +39,11 @@ public class DefaultPostTitleService implements PostTitleService {
     @Override
     public void modifyPost(String corrector, String title, String contents, int id) {
         postTitleMapper.updatePostTitle(corrector, title, contents, id);
+    }
+
+    @Override
+    public void recoverPost(int id) {
+        postTitleMapper.selectRecoverTitle(id);
     }
 
     @Override

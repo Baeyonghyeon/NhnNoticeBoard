@@ -4,10 +4,9 @@ import com.nhnacademy.jdbc.board.comment.domain.Comment;
 import com.nhnacademy.jdbc.board.comment.service.CommentService;
 import com.nhnacademy.jdbc.board.post.domain.PostTitle;
 import com.nhnacademy.jdbc.board.post.service.PostTitleService;
+import com.nhnacademy.jdbc.board.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +22,12 @@ public class NoticeBoardController extends BaseController {
 
     private final PostTitleService postTitleService;
     private final CommentService commentService;
+    private final UserService userService;
 
-    public NoticeBoardController(PostTitleService postTitleService, CommentService commentService) {
+    public NoticeBoardController(PostTitleService postTitleService, CommentService commentService, UserService userService) {
         this.postTitleService = postTitleService;
         this.commentService = commentService;
+        this.userService = userService;
     }
 
     // 게시물 입력하는 Form으로 이동
@@ -50,11 +51,19 @@ public class NoticeBoardController extends BaseController {
 
     // 게시물 모두 조회 (전체 게시판)
     @GetMapping(value = {"/ContentTitle", "/"})
-    public String getTitles(ModelMap modelMap) {
+    public String getTitles(ModelMap modelMap,
+                            @ModelAttribute("user") String userId) {
 //        List<PostTitle> list = postTitleService.selectPostTitles();
         modelMap.put("noticeBoard", postTitleService.selectPostTitles());
-
+        modelMap.put("admin", userService.isAdmin(userId));
         return "index/noticeBoard";
+    }
+
+    // 삭제된 게시물 조회(관리자 전용)
+    @GetMapping("/deleted/post")
+    public String getDeletedPost(ModelMap modelMap){
+        modelMap.put("noticeBoard", postTitleService.selectDeletedPostTitles());
+        return "index/deletedPost";
     }
 
     // 게시물 하나 들어가서 조회
@@ -96,7 +105,14 @@ public class NoticeBoardController extends BaseController {
     public String deletePost(@PathVariable("noticeId") int noticeId, ModelMap modelMap) {
         postTitleService.deletePost(noticeId);
         modelMap.put("noticeBoard", postTitleService.selectPostTitles());
-        return "index/noticeBoard";
+        return "redirect:/ContentTitle";
+    }
+
+    //게시물 복구
+    @GetMapping("/deleteTitle/recover/{noticeId}")
+    public String recoverPost(@PathVariable("noticeId") int noticeId){
+        postTitleService.recoverPost(noticeId);
+        return "redirect:/deleted/post";
     }
 
     // 댓글 등록
