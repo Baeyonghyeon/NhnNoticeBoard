@@ -7,8 +7,6 @@ n
 >src/main/java/com/nhnacademy/jdbc/board/config/RootConfig.java,3/c/3c2120ffe0a0f7a59d64efd97aca3eb07862f21c
 u
 Esrc/main/java/com/nhnacademy/jdbc/board/config/WebAppInitializer.java,2/8/2830adace85817bafa67fb35e753f3a74f1b009d
-q
-Asrc/main/java/com/nhnacademy/jdbc/board/config/MybatisConfig.java,a/2/a213f771d1c2c718c6a2de8c8394b4ee5f14a3c5
 s
 Csrc/main/java/com/nhnacademy/jdbc/board/user/mapper/UserMapper.java,b/8/b87a5b9ea150ff4ad2f152d0256256388117f521
 u
@@ -31,12 +29,6 @@ v
 Fsrc/main/java/com/nhnacademy/jdbc/board/index/web/IndexController.java,f/7/f76509737511245ced87d707e319709ed40bd1a9
 w
 Gsrc/main/java/com/nhnacademy/jdbc/board/user/mapper/maps/UserMapper.xml,9/d/9d2e4e20539aab80537fe7e1fb7b562cc618c784
-e
-5src/main/webapp/WEB-INF/views/index/loginSuccess.html,0/a/0abee06eaa110c624d850a194a69000bdd1b3245
-g
-7src/main/webapp/WEB-INF/views/index/postNoticeForm.html,e/7/e7a594966ea287e15e23f8b7ddaae5c6901a3b09
-†
-Vsrc/main/java/com/nhnacademy/jdbc/board/post/service/impl/DefaultPostTitleService.java,a/a/aa42d5b0f32ba77a1317ff083336852de3310cd7
 x
 Hsrc/main/java/com/nhnacademy/jdbc/board/post/mapper/PostTitleMapper.java,c/9/c955ac5123da8865f9b7d7e43c8bac8c4b3641d0
 z
