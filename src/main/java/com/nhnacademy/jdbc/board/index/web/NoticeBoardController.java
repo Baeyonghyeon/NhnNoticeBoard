@@ -164,4 +164,29 @@ public class NoticeBoardController extends BaseController {
         return "redirect:/Contents/postView/" + noticeId;
     }
 
+    // 답글 등록 Form으로 이동
+    @GetMapping("/updateReply/{noticeId}")
+    public String goReplyNotice(
+            @PathVariable("noticeId") int noticeId,
+            ModelMap modelMap) {
+
+        modelMap.put("noticeId", noticeId);
+        return "index/postReplyForm";
+    }
+
+    // 답글 DB에 등록
+    @PostMapping("/updateReply/{noticeId}")
+    public String ReplyNotice(
+            @PathVariable("noticeId") int noticeId,
+            @RequestParam("title") String title,
+            @RequestParam("contents") String contents, HttpServletRequest request) {
+
+        PostTitle originPost = postTitleService.selectPostTitle(noticeId).get();
+        HttpSession session = request.getSession(false);
+        PostTitle postTitle = PostTitle.registerReply((String) session.getAttribute("id"),
+                title, new Timestamp(new Date().getTime()), contents, originPost.getReplyRef());
+        postTitleService.uploadReply(postTitle, originPost.getReplyRef(), noticeId);
+        return "redirect:/ContentTitle";
+    }
+
 }

@@ -17,4 +17,8 @@ public interface PostTitleMapper {
     List<PostTitle> selectDeletedTitles();
     void selectRecoverTitle(int id);
     int selectMaxPostCount();
+
+    void updatePostReply(@Param("originRef") int originRef);
+    void insertPostReply(@Param("postTitle") PostTitle postTitle, @Param("parentNo") int parentNo);
+
 }

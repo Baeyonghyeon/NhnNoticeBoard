@@ -14,4 +14,5 @@ public interface PostTitleService {
     void modifyPost(String corrector, String title, String content, int noticeId);
     void recoverPost(int id);
     int getMaxPostCount();
+    void uploadReply(PostTitle postTitle, int originNo, int originOrd);
 }
