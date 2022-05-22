@@ -31,7 +31,4 @@ public class Comment {
         this.commentSeparateCode = commentSeparateCode;
     }
 
-    //    public static Comment registerComment(String writer, String commentContent, Date createDate, int commentSeparateCode) {
-//        return new Comment(writer, commentContent, createDate, commentSeparateCode);
-//    }
 }

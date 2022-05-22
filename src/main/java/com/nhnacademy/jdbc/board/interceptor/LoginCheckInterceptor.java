@@ -12,7 +12,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class LoginCheckInterceptor implements HandlerInterceptor {
 	//login로 들어왔을 때는 session이  null이라서 제외시킨다.
 	public String loginInessential = "/login";
-	public String noticeBoardInessential = "/ContentTitle";
+	public String noticeBoardInessential = "/ContentTitle/*";
 	public String postInessential = "/Contents/postView/*";
 
 

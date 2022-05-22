@@ -9,11 +9,12 @@ import java.util.Optional;
 
 @Mapper
 public interface PostTitleMapper {
-    List<PostTitle> selectPostTitles();
+    List<PostTitle> selectPostTitles(int num);
     Optional<PostTitle> selectPostTitle(int id);
     void insertPostTitle(PostTitle postTitle);
     void updatePostTitle(@Param("corrector") String corrector , @Param("title") String title, @Param("contents") String contents, @Param("id") int id);
     void deleteById(int id);
     List<PostTitle> selectDeletedTitles();
     void selectRecoverTitle(int id);
+    int selectMaxPostCount();
 }
