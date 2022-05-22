@@ -3,8 +3,6 @@ a
 1src/main/java/com/nhnacademy/jdbc/board/Base.java,7/b/7bf5ad3f9cb5d18230ebab53db53665390945c75
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
-S
-#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
 m
 =src/main/java/com/nhnacademy/jdbc/board/config/WebConfig.java,a/1/a1ca2a8072c40e9e253217787111269c053bb793
 u
@@ -35,7 +33,5 @@ w
 Gsrc/main/java/com/nhnacademy/jdbc/board/user/mapper/maps/UserMapper.xml,9/d/9d2e4e20539aab80537fe7e1fb7b562cc618c784
 e
 5src/main/webapp/WEB-INF/views/index/loginSuccess.html,0/a/0abee06eaa110c624d850a194a69000bdd1b3245
-g
-7src/main/webapp/WEB-INF/views/index/postNoticeForm.html,e/7/e7a594966ea287e15e23f8b7ddaae5c6901a3b09
 ~
 Nsrc/main/java/com/nhnacademy/jdbc/board/interceptor/LoginCheckInterceptor.java,0/3/03958d87238e7179e5a8bde93b27ee79f578f0fe

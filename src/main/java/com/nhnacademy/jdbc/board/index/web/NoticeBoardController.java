@@ -54,9 +54,8 @@ public class NoticeBoardController extends BaseController {
     // 게시물 모두 조회 (전체 게시판)
     @GetMapping("/ContentTitle")
     public String getTitles(ModelMap modelMap) {
-        List<PostTitle> posts = postTitleService.selectPostTitles();
-        posts
-        modelMap.put("noticeBoard", posts);
+        // List<PostTitle> posts = postTitleService.selectPostTitles();
+        modelMap.put("noticeBoard", postTitleService.selectPostTitles());
 
         return "index/noticeBoard";
     }
