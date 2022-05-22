@@ -49,7 +49,7 @@ public class NoticeBoardController extends BaseController {
     }
 
     // 게시물 모두 조회 (전체 게시판)
-    @GetMapping("/ContentTitle")
+    @GetMapping(value = {"/ContentTitle", "/"})
     public String getTitles(ModelMap modelMap) {
 //        List<PostTitle> list = postTitleService.selectPostTitles();
         modelMap.put("noticeBoard", postTitleService.selectPostTitles());
@@ -62,7 +62,6 @@ public class NoticeBoardController extends BaseController {
     public String getContents(@PathVariable("noticeId") int noticeId,
                               @ModelAttribute("user") String userId,
                               ModelMap modelMap) {
-
         modelMap.put("contents", postTitleService.selectPostTitle(noticeId).get());
         modelMap.put("comments", commentService.selectComments(noticeId));
         modelMap.put("writer", userId);

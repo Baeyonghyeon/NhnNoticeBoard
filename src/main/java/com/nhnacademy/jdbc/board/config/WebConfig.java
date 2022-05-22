@@ -82,7 +82,9 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
         LoginCheckInterceptor loginCheckInterceptor = new LoginCheckInterceptor();
         registry.addInterceptor(new LoginCheckInterceptor())
             .addPathPatterns()
-            .excludePathPatterns(loginCheckInterceptor.loginInessential);
+            .excludePathPatterns(loginCheckInterceptor.loginInessential,
+                    loginCheckInterceptor.noticeBoardInessential,
+                    loginCheckInterceptor.postInessential);
 
     }
 }
