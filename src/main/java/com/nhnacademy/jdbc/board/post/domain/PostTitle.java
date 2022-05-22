@@ -15,9 +15,9 @@ public class PostTitle {
     private int hits;
     private String content;
     private boolean isInactive; //true 비활성화  , false 활성화;
-    private int replyRef;
-    private int replyOrd;
-    private int replyDepth;
+    private int replyRef; //답글 그룹
+    private int replyOrd; //답글 순서
+    private int replyDepth; //답글 깊이
 
 
     public static PostTitle registerPostTitle(String writer, String title, Date createDate, String content){
