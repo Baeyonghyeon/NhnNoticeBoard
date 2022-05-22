@@ -41,4 +41,10 @@ public class DefaultPostTitleService implements PostTitleService {
     public void deletePost(int id) {
         postTitleMapper.deleteById(id);
     }
+
+    @Override
+    public void uploadReply(PostTitle postTitle) {
+        postTitleMapper.updatePostReply(postTitle.getReplyRef());
+        postTitleMapper.insertPostTitle(postTitle);
+    }
 }

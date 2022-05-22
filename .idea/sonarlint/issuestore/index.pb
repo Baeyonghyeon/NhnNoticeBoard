@@ -3,12 +3,6 @@ a
 1src/main/java/com/nhnacademy/jdbc/board/Base.java,7/b/7bf5ad3f9cb5d18230ebab53db53665390945c75
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
-m
-=src/main/java/com/nhnacademy/jdbc/board/config/WebConfig.java,a/1/a1ca2a8072c40e9e253217787111269c053bb793
-u
-Esrc/main/java/com/nhnacademy/jdbc/board/config/WebAppInitializer.java,2/8/2830adace85817bafa67fb35e753f3a74f1b009d
-q
-Asrc/main/java/com/nhnacademy/jdbc/board/config/MybatisConfig.java,a/2/a213f771d1c2c718c6a2de8c8394b4ee5f14a3c5
 s
 Csrc/main/java/com/nhnacademy/jdbc/board/user/mapper/UserMapper.java,b/8/b87a5b9ea150ff4ad2f152d0256256388117f521
 u

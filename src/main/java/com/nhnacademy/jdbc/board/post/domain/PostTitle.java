@@ -15,6 +15,10 @@ public class PostTitle {
     private int hits;
     private String content;
     private boolean isInactive; //true 비활성화  , false 활성화;
+    private int replyRef;
+    private int replyOrd;
+    private int replyDepth;
+
 
     public static PostTitle registerPostTitle(String writer, String title, Date createDate, String content){
         return new PostTitle(writer, title, createDate, content);
@@ -31,7 +35,9 @@ public class PostTitle {
         this.content = content;
     }
 
-    private PostTitle(int id, String writer, String corrector, String title, Date createDate, Date correctDate, int hits, String content ,boolean isInactive) {
+    public PostTitle(int id, String writer, String corrector, String title, Date createDate,
+        Date correctDate, int hits, String content, boolean isInactive, int replyRef, int replyOrd,
+        int replyDepth) {
         this.id = id;
         this.writer = writer;
         this.corrector = corrector;
@@ -41,5 +47,8 @@ public class PostTitle {
         this.hits = hits;
         this.content = content;
         this.isInactive = isInactive;
+        this.replyRef = replyRef;
+        this.replyOrd = replyOrd;
+        this.replyDepth = replyDepth;
     }
 }

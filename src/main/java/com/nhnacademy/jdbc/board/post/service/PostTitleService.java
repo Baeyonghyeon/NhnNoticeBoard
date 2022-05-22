@@ -9,6 +9,7 @@ public interface PostTitleService {
     List<PostTitle> selectPostTitles();
     Optional<PostTitle> selectPostTitle(int id);
     void uploadPost(PostTitle postTitle);
+    void uploadReply(PostTitle postTitle);
     void deletePost(int id);
     void modifyPost(String corrector, String title, String content, int noticeId);
 }
