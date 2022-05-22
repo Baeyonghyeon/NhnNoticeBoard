@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,9 +11,9 @@
     <a href="/deleted/post">삭제된 게시물 보기</a>
     </div>
     <hr>
+    <span th:text = "@{|전체 게시물 개수 : ${maxPostCount}개|}"></span>
     <table class = "table table-striped" border="1">
         <thead>
-        <tr>전체 게시물</tr>
         <tr>
             <th>번호</th>
             <th>제목</th>
@@ -34,5 +34,16 @@
         </tr>
         </thead>
     </table>
+
+    <!-- 게시판 하단의 페이징 버튼 -->
+    <div class="box-footer clearfix">
+        <div th:style="${currentPage > 0 ? 'display:block' : 'display:none'}">
+            <a th:href="@{|/ContentTitle/${currentPage - 1}|}">이전</a>
+        </div>
+        <span th:text = "@{|${currentPage} / ${maxPostPage}|}"></span>
+        <div th:style="${currentPage <= maxPostPage ? 'display:block' : 'display:none'}">
+            <a th:href="@{|/ContentTitle/${currentPage + 1}|}">다음</a>
+        </div>
+    </div>
 </body>
 </html>

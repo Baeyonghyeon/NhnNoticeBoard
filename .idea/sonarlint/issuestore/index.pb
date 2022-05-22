@@ -3,10 +3,6 @@ a
 1src/main/java/com/nhnacademy/jdbc/board/Base.java,7/b/7bf5ad3f9cb5d18230ebab53db53665390945c75
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
-n
->src/main/java/com/nhnacademy/jdbc/board/config/RootConfig.java,3/c/3c2120ffe0a0f7a59d64efd97aca3eb07862f21c
-u
-Esrc/main/java/com/nhnacademy/jdbc/board/config/WebAppInitializer.java,2/8/2830adace85817bafa67fb35e753f3a74f1b009d
 }
 Msrc/main/java/com/nhnacademy/jdbc/board/student/mapper/maps/StudentMapper.xml,1/f/1fa8c0af7d7a85cf4ce48e74689db2f1992d85ba
 y
@@ -17,18 +13,8 @@ Wsrc/main/java/com/nhnacademy/jdbc/board/student/service/impl/DefaultStudentServ
 Ksrc/main/java/com/nhnacademy/jdbc/board/student/service/StudentService.java,a/8/a88bd37e5641e283eff35bf96733a103f80033fb
 s
 Csrc/main/java/com/nhnacademy/jdbc/board/student/domain/Student.java,b/8/b8c8e4fea63111cd3ca7dffbe0aa46a36e72d5eb
-v
-Fsrc/main/java/com/nhnacademy/jdbc/board/index/web/IndexController.java,f/7/f76509737511245ced87d707e319709ed40bd1a9
-{
-Ksrc/main/java/com/nhnacademy/jdbc/board/comment/service/CommentService.java,1/f/1f556e8f673b0168205e75832a052aa7881e1e41
-y
-Isrc/main/java/com/nhnacademy/jdbc/board/comment/mapper/CommentMapper.java,a/0/a06a634497743edfbdf0045a408861dfb253db7d
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 u
-Esrc/main/java/com/nhnacademy/jdbc/board/index/web/BaseController.java,8/e/8ef6f3c1d84182ff31c08be0dd59fa4f8a6ca33c
-s
-Csrc/main/java/com/nhnacademy/jdbc/board/comment/domain/Comment.java,1/a/1adffecb7a2dc8da4df2cdf2d683257f6b3d6b06
-m
-=src/main/java/com/nhnacademy/jdbc/board/config/WebConfig.java,a/1/a1ca2a8072c40e9e253217787111269c053bb793
+Esrc/main/java/com/nhnacademy/jdbc/board/user/service/UserService.java,8/9/89b58a497dcec6959ae3932b9210159afe500509

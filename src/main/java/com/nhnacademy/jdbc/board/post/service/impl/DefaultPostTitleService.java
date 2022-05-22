@@ -17,8 +17,8 @@ public class DefaultPostTitleService implements PostTitleService {
     }
 
     @Override
-    public List<PostTitle> selectPostTitles() {
-        return postTitleMapper.selectPostTitles();
+    public List<PostTitle> selectPostTitles(int num) {
+        return postTitleMapper.selectPostTitles(num * 20);
     }
 
     @Override
@@ -44,6 +44,11 @@ public class DefaultPostTitleService implements PostTitleService {
     @Override
     public void recoverPost(int id) {
         postTitleMapper.selectRecoverTitle(id);
+    }
+
+    @Override
+    public int getMaxPostCount() {
+        return postTitleMapper.selectMaxPostCount();
     }
 
     @Override

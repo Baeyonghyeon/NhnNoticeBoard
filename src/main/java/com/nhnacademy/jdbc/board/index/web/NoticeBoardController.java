@@ -24,6 +24,8 @@ public class NoticeBoardController extends BaseController {
     private final CommentService commentService;
     private final UserService userService;
 
+
+
     public NoticeBoardController(PostTitleService postTitleService, CommentService commentService, UserService userService) {
         this.postTitleService = postTitleService;
         this.commentService = commentService;
@@ -46,17 +48,22 @@ public class NoticeBoardController extends BaseController {
         PostTitle postTitle = PostTitle.registerPostTitle((String) session.getAttribute("id"), title, new Timestamp(new Date().getTime()), contents);
         postTitleService.uploadPost(postTitle);
 
-        return "redirect:/ContentTitle";
+        return "redirect:/ContentTitle/"+ 0;
     }
 
     // 게시물 모두 조회 (전체 게시판)
-    @GetMapping(value = {"/ContentTitle", "/"})
+    @GetMapping(value = {"/ContentTitle/{pageNum}", "/ContentTitle"})
     public String getTitles(ModelMap modelMap,
-                            @ModelAttribute("user") String userId) {
-//        List<PostTitle> list = postTitleService.selectPostTitles();
-        modelMap.put("noticeBoard", postTitleService.selectPostTitles());
+                            @ModelAttribute("user") String userId,
+                            @PathVariable("pageNum") int pageNum) {
+
+        modelMap.put("noticeBoard", postTitleService.selectPostTitles(pageNum));
+        modelMap.put("currentPage", pageNum);
+        modelMap.put("maxPostCount", postTitleService.getMaxPostCount());
+        modelMap.put("maxPostPage", postTitleService.getMaxPostCount()/20);
         modelMap.put("admin", userService.isAdmin(userId));
         return "index/noticeBoard";
+
     }
 
     // 삭제된 게시물 조회(관리자 전용)
@@ -96,7 +103,7 @@ public class NoticeBoardController extends BaseController {
 //      Optional<PostTitle> postTitle = postTitleService.selectPostTitle(noticeId);
 
         postTitleService.modifyPost(id, title, content, noticeId);
-        return "redirect:/ContentTitle";
+        return "redirect:/ContentTitle/"+ 0;
     }
 
 
@@ -104,8 +111,8 @@ public class NoticeBoardController extends BaseController {
     @GetMapping("/deleteTitle/{noticeId}")
     public String deletePost(@PathVariable("noticeId") int noticeId, ModelMap modelMap) {
         postTitleService.deletePost(noticeId);
-        modelMap.put("noticeBoard", postTitleService.selectPostTitles());
-        return "redirect:/ContentTitle";
+//        modelMap.put("noticeBoard", postTitleService.selectPostTitles(no));
+        return "redirect:/ContentTitle/" + 0;
     }
 
     //게시물 복구
@@ -156,4 +163,5 @@ public class NoticeBoardController extends BaseController {
         commentService.deleteComment(commentId);
         return "redirect:/Contents/postView/" + noticeId;
     }
+
 }

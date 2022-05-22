@@ -8,7 +8,13 @@
     <select id="selectPostTitles" resultType="com.nhnacademy.jdbc.board.post.domain.PostTitle">
         select distinct A.notice_board_no, A.writer, A.corrector, A.title, A.create_date, A.correct_date, A.hits, A.content, A.is_inactive,
                         (select count(*) from comment A where A.notice_board_no = B.notice_board_no) comment_count
-        from notice_board A left join comment B on A.notice_board_no = B.notice_board_no where is_inactive = 0;
+        from notice_board A left join comment B on A.notice_board_no = B.notice_board_no where is_inactive = 0
+            limit #{num},20
+    </select>
+
+    <!-- 게시물 개수 조회-->
+    <select id="selectMaxPostCount" resultType="java.lang.Integer">
+        select count(*) from notice_board where is_inactive = 0;
     </select>
 
     <!--게시물 조회-->
