@@ -43,8 +43,8 @@ public class DefaultPostTitleService implements PostTitleService {
     }
 
     @Override
-    public void uploadReply(PostTitle postTitle) {
-        postTitleMapper.updatePostReply(postTitle.getReplyRef());
-        postTitleMapper.insertPostTitle(postTitle);
+    public void uploadReply(PostTitle postTitle, int originNo, int parentNo) {
+        postTitleMapper.updatePostReply(originNo);
+        postTitleMapper.insertPostReply(postTitle, parentNo);
     }
 }

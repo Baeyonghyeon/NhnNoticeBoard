@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,6 +14,7 @@
             <th>작성자</th>
             <th>작성일자</th>
             <th>조회수</th>
+            <th>답글작성</th>
         </tr>
         <tr th:each="notice : ${noticeBoard}">
             <td th:text = "${notice.id}"></td>
@@ -23,8 +24,12 @@
             <td th:text = "${notice.writer}"></td>
             <td th:text = "${notice.createDate}"></td>
             <td th:text = "${notice.hits}"></td>
+            <td>
+                <a th:href="${'/updateReply/' + notice.id }"> 답글 작성 </a>
+            </td>
         </tr>
         </thead>
     </table>
 </body>
 </html>
+

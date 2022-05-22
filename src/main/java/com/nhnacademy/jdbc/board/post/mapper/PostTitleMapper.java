@@ -15,8 +15,8 @@ public interface PostTitleMapper {
 
 	void insertPostTitle(PostTitle postTitle);
 
-	void updatePostReply(@Param("replyRef") int replyRef);
-	void insertPostReply(PostTitle postTitle);
+	void updatePostReply(@Param("originRef") int originRef);
+	void insertPostReply(@Param("postTitle") PostTitle postTitle, @Param("parentNo") int parentNo);
 
 	void updatePostTitle(@Param("corrector") String corrector, @Param("title") String title,
 		@Param("contents") String contents, @Param("id") int id);

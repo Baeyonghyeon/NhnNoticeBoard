@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="contentContainer">
+    <h2>답글 등록</h2>
+    <form method="post" th:action="@{|/updateReply/${noticeId}|}">
+        <fieldset>
+            <legend>답글 등록</legend>
+            <input type="text" name="title" placeholder="제목을 입력하세요"><br>
+            <input type="text" name="contents" placeholder="내용을 입력하세요">
+            <button type="submit">등록하기</button>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>

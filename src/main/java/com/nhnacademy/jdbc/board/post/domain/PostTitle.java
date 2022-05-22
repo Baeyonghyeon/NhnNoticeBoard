@@ -24,9 +24,9 @@ public class PostTitle {
         return new PostTitle(writer, title, createDate, content);
     }
 
-//    public static PostTitle original(int id, String writer, String corrector, String title, Date createDate, Date correctDate, int hits, String content ,boolean isInactive){
-//        return new PostTitle(id, writer, corrector, title, createDate, correctDate, hits, content, isInactive);
-//    }
+    public static PostTitle registerReply(String writer, String title, Date createDate, String content, int replyRef){
+        return new PostTitle(writer, title, createDate, content, replyRef);
+    }
 
     private PostTitle(String writer, String title, Date createDate, String content) {
         this.writer = writer;
@@ -34,6 +34,15 @@ public class PostTitle {
         this.createDate = createDate;
         this.content = content;
     }
+
+    private PostTitle(String writer, String title, Date createDate, String content, int replyRef) {
+        this.writer = writer;
+        this.title = title;
+        this.createDate = createDate;
+        this.content = content;
+        this.replyRef = replyRef;
+    }
+
 
     public PostTitle(int id, String writer, String corrector, String title, Date createDate,
         Date correctDate, int hits, String content, boolean isInactive, int replyRef, int replyOrd,
