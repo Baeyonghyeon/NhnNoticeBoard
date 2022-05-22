@@ -56,7 +56,8 @@
         UPDATE notice_board SET reply_ord = reply_ord + 1 WHERE reply_ref = #{originRef} AND reply_ord > 0
     </update>
     <insert id="insertPostReply">
-        INSERT INTO notice_board VALUES (default, #{postTitle.writer}, null, #{postTitle.title}, #{postTitle.createDate}, null, 0, #{postTitle.content}, false, #{postTitle.replyRef}, (SELECT reply_ord FROM notice_board AS temp WHERE notice_board_no = #{postTitle.replyRef})+1, (SELECT reply_depth FROM notice_board AS temp WHERE notice_board_no = #{parentNo}) +1)
+        INSERT INTO notice_board VALUES (default, #{postTitle.writer}, null, #{postTitle.title}, #{postTitle.createDate}, null, 0, #{postTitle.content}, false, #{postTitle.replyRef},(SELECT reply_ord FROM notice_board AS temp WHERE notice_board_no = #{postTitle.replyRef})+1,(SELECT reply_depth FROM notice_board AS temp WHERE notice_board_no = #{parentNo}) +1)
+
     </insert>
 
 </mapper>

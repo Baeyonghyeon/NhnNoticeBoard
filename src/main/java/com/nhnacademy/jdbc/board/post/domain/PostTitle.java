@@ -1,19 +1,39 @@
 package com.nhnacademy.jdbc.board.post.domain;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 import java.util.Date;
+import lombok.Getter;
+import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 
-@Data
+@Getter
+@ToString
 //(default, 'admin', null, '게시판 샘플1',19981231235959, null, 0, '샘플 게시판 내용1', 댓글개수);
 public class PostTitle {
-    private int id;
+
+    private int id; //게시물 번호
+
+    @NotNull
     private String writer;
+
+    @NotNull
     private String corrector;
+
+    @NotBlank
+    @Length(min=1, max = 50)
     private String title;
+
+
     private Date createDate;
     private Date correctDate;
     private int hits;
+
+    @NotBlank
+    @Length(min = 1, max = 2000)
     private String content;
+
     private int commentCount;
     private boolean isInactive; //true 비활성화  , false 활성화;
     private int replyRef; //답글 그룹
@@ -87,4 +107,5 @@ public class PostTitle {
         this.replyOrd = replyOrd;
         this.replyDepth = replyDepth;
     }
+
 }

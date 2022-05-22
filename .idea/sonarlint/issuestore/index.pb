@@ -1,6 +1,4 @@
 
-7
-pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 }
 Msrc/main/java/com/nhnacademy/jdbc/board/student/mapper/maps/StudentMapper.xml,1/f/1fa8c0af7d7a85cf4ce48e74689db2f1992d85ba
 y
@@ -26,15 +24,5 @@ e
 5src/main/webapp/WEB-INF/views/index/loginSuccess.html,0/a/0abee06eaa110c624d850a194a69000bdd1b3245
 j
 :src/main/webapp/WEB-INF/views/index/commentModifyForm.html,4/b/4b444c1f7daf1dd90026064eb0c7552d964de193
-u
-Esrc/main/java/com/nhnacademy/jdbc/board/index/web/UserController.java,1/1/111e1392bdc8834cbd3649877912d9f63d103f3f
-m
-=src/main/java/com/nhnacademy/jdbc/board/user/domain/User.java,c/8/c8545c030c4d9b5ea542583dbfb7a13ea9d51f82
-u
-Esrc/main/java/com/nhnacademy/jdbc/board/user/service/UserService.java,8/9/89b58a497dcec6959ae3932b9210159afe500509
-a
-1src/main/java/com/nhnacademy/jdbc/board/Base.java,7/b/7bf5ad3f9cb5d18230ebab53db53665390945c75
 ‡
 Wsrc/main/java/com/nhnacademy/jdbc/board/comment/service/impl/DefaultCommentService.java,8/3/831b4e5327d3133a08a726398345a0dabcb2a32e
-q
-Asrc/main/java/com/nhnacademy/jdbc/board/config/MybatisConfig.java,a/2/a213f771d1c2c718c6a2de8c8394b4ee5f14a3c5
