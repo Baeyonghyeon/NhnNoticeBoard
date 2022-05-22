@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface UserService {
     boolean matches(String id, String pwd);
+    boolean isAdmin(String id);
 }

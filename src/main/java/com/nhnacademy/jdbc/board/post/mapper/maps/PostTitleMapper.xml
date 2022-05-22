@@ -6,16 +6,9 @@
 <mapper namespace="com.nhnacademy.jdbc.board.post.mapper.PostTitleMapper">
     <!--게시판 전체 조회-->
     <select id="selectPostTitles" resultType="com.nhnacademy.jdbc.board.post.domain.PostTitle">
-        select notice_board_no
-             , writer
-             , corrector
-             , title
-             , create_date
-             , correct_date
-             , hits
-             , content
-             , is_inactive
-        from notice_board where is_inactive = 0;
+        select distinct A.notice_board_no, A.writer, A.corrector, A.title, A.create_date, A.correct_date, A.hits, A.content, A.is_inactive,
+                        (select count(*) from comment A where A.notice_board_no = B.notice_board_no) comment_count
+        from notice_board A left join comment B on A.notice_board_no = B.notice_board_no where is_inactive = 0;
     </select>
 
     <!--게시물 조회-->
@@ -23,11 +16,22 @@
         select notice_board_no, writer, corrector, title, create_date, correct_date, hits, content, is_inactive from notice_board where notice_board_no = ${id}
     </select>
 
+    <!-- 관리자 전용 삭제된 게시물 조회 -->
+    <select id="selectDeletedTitles" resultType="com.nhnacademy.jdbc.board.post.domain.PostTitle">
+        select distinct A.notice_board_no, A.writer, A.corrector, A.title, A.create_date, A.correct_date, A.hits, A.content, A.is_inactive,
+                        (select count(*) from comment A where A.notice_board_no = B.notice_board_no) comment_count
+        from notice_board A left join comment B on A.notice_board_no = B.notice_board_no where is_inactive = 1;
+    </select>
+
+    <!--게시물 복구-->
+    <select id="selectRecoverTitle">
+        update notice_board set is_inactive = 0 where notice_board_no = #{id};
+    </select>
+
     <!--게시판 추가-->
     <insert id="insertPostTitle">
         INSERT INTO notice_board VALUES(default, '${writer}', null, '${title}', #{createDate}, null, 0, '${content}', false)
     </insert>
-
 
     <!--게시판 수정-->
     <update id="updatePostTitle">

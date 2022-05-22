@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+    <a href="/login">로그인 하기</a><br>
+    <a href="/postNotice">게시물 입력</a>
+    <div th:style="${admin == true ? 'display:block' : 'display:none'}">
+    <a href="/deleted/post">삭제된 게시물 보기</a>
+    </div>
+    <hr>
     <table class = "table table-striped" border="1">
         <thead>
         <tr>전체 게시물</tr>
@@ -14,6 +20,7 @@
             <th>작성자</th>
             <th>작성일자</th>
             <th>조회수</th>
+            <th>댓글수</th>
         </tr>
         <tr th:each="notice : ${noticeBoard}">
             <td th:text = "${notice.id}"></td>
@@ -23,6 +30,7 @@
             <td th:text = "${notice.writer}"></td>
             <td th:text = "${notice.createDate}"></td>
             <td th:text = "${notice.hits}"></td>
+            <td th:text = "${notice.commentCount}"></td>
         </tr>
         </thead>
     </table>

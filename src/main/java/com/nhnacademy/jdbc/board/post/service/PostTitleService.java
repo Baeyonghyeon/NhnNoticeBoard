@@ -7,8 +7,10 @@ import java.util.Optional;
 
 public interface PostTitleService {
     List<PostTitle> selectPostTitles();
+    List<PostTitle> selectDeletedPostTitles();
     Optional<PostTitle> selectPostTitle(int id);
     void uploadPost(PostTitle postTitle);
     void deletePost(int id);
     void modifyPost(String corrector, String title, String content, int noticeId);
+    void recoverPost(int id);
 }

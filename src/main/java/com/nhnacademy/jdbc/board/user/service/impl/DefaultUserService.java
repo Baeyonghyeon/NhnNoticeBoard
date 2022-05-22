@@ -4,6 +4,8 @@ import com.nhnacademy.jdbc.board.user.domain.User;
 import com.nhnacademy.jdbc.board.user.mapper.UserMapper;
 import com.nhnacademy.jdbc.board.user.service.UserService;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -22,6 +24,19 @@ public class DefaultUserService implements UserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean isAdmin(String id) {
+        if(Objects.isNull(id)){
+            return false;
+        }
+        Optional<User> user = userMapper.selectUser(id);
+        if(user.get().getUserSeparateCode() == 1){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
