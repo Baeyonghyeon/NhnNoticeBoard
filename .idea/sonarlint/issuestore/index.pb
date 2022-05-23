@@ -14,8 +14,6 @@ j
 :src/main/webapp/WEB-INF/views/index/commentModifyForm.html,4/b/4b444c1f7daf1dd90026064eb0c7552d964de193
 ‡
 Wsrc/main/java/com/nhnacademy/jdbc/board/comment/service/impl/DefaultCommentService.java,8/3/831b4e5327d3133a08a726398345a0dabcb2a32e
-S
-#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 f
 6src/main/webapp/WEB-INF/views/index/postReplyForm.html,b\8\b8bb126066ec1c3b4462101c8e4499266d40232c
 u
@@ -26,8 +24,6 @@ n
 >src/main/java/com/nhnacademy/jdbc/board/config/RootConfig.java,3\c\3c2120ffe0a0f7a59d64efd97aca3eb07862f21c
 ~
 Nsrc/main/java/com/nhnacademy/jdbc/board/interceptor/LoginCheckInterceptor.java,0\3\03958d87238e7179e5a8bde93b27ee79f578f0fe
-m
-=src/main/java/com/nhnacademy/jdbc/board/config/WebConfig.java,a\1\a1ca2a8072c40e9e253217787111269c053bb793
 u
 Esrc/main/java/com/nhnacademy/jdbc/board/user/service/UserService.java,8\9\89b58a497dcec6959ae3932b9210159afe500509
 s
@@ -50,5 +46,15 @@ u
 Esrc/main/java/com/nhnacademy/jdbc/board/index/web/UserController.java,1\1\111e1392bdc8834cbd3649877912d9f63d103f3f
 b
 2src/main/webapp/WEB-INF/views/index/loginForm.html,b\2\b28a46febe395048d7d2dbcd1c107b632c730900
-s
-Csrc/main/java/com/nhnacademy/jdbc/board/comment/domain/Comment.java,1\a\1adffecb7a2dc8da4df2cdf2d683257f6b3d6b06
+a
+1src/main/webapp/WEB-INF/views/index/contents.html,f\5\f58e1aafa809872bf20301c91c29be8510aacdfa
+v
+Fsrc/main/java/com/nhnacademy/jdbc/board/index/web/ReplyController.java,3\0\30f750bd62054feece278aefff0e22cb7b1c5765
+|
+Lsrc/main/java/com/nhnacademy/jdbc/board/index/web/NoticeBoardController.java,8\a\8abce0f6ab6fa92606b0ebab8f244a3c4a2cd440
+d
+4src/main/webapp/WEB-INF/views/index/noticeBoard.html,d\a\dabed0bd9fce5b0f929cf803eb5da8cd812174c6
+|
+Lsrc/main/java/com/nhnacademy/jdbc/board/post/mapper/maps/PostTitleMapper.xml,a\8\a8ed1c576c6a20336bed13a04fa38ff3efcd7196
+r
+Bsrc/main/java/com/nhnacademy/jdbc/board/post/domain/PostTitle.java,b\f\bfc87bc7a74b5c2f015e47b39671f025be2a02a2
