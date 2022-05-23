@@ -5,11 +5,13 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import java.util.Date;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 
 @Getter
 @ToString
+@Setter
 //(default, 'admin', null, '게시판 샘플1',19981231235959, null, 0, '샘플 게시판 내용1', 댓글개수);
 public class PostTitle {
 
