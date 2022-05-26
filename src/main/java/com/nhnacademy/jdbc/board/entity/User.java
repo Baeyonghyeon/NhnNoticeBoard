@@ -21,24 +21,17 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "Users")
 public class User {
 
-	@NotBlank
-	@Length(min = 1, max = 10)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private String id;
 
 
-	@NotBlank
-	@Length(min = 1, max = 10)
 	private String password;
 
-	@NotBlank
-	@Length(min = 1, max = 10)
 	@Column(name = "user_name")
 	private String name;
 
-	@NotNull
 	@Column(name = "user_separate_code")
 	private int userSeparateCode;
 
